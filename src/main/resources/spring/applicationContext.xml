@@ -9,8 +9,13 @@
             <property name="username" value="mvc"/>
             <property name="password" value="mvc"/>
         </bean>
-
+<!--        hikaricp configuration-->
         <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
             <constructor-arg ref="hikariConfig"/>
         </bean>
+
+        <bean id="sqlSessionFatory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+
 </beans>
